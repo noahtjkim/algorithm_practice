@@ -9,21 +9,23 @@ class ListNode:
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        arr = ListNode()
+        header = node = ListNode()
 
-        while True:
-            print(list1.val)
+        while list1 and list2:
+            if list1.val < list2.val:
+                node.next = list1
+                list1 = list1.next
+            else:
+                node.next = list2
+                list2 = list2.next
 
-            if list1.next == None:
-                break
+            node = node.next
 
+        if list1 or list2:
+            node.next = list1 if list1 else list2
 
-        return arr
+        return header.next
 
-
-sol = Solution()
-res = sol.mergeTwoLists([1, 2, 4], [1, 3, 4])
-# print(res)
 
 
 
