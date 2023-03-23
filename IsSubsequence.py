@@ -5,7 +5,6 @@ class Solution:
         t = list(t)
         res = []
         seq = 0
-        e_flag = False
 
         if len(s) > 0:
             for i in range(len(t)):
