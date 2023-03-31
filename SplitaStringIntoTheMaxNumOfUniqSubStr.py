@@ -1,24 +1,32 @@
 
 class Solution:
     def maxUniqueSplit(self, s: str) -> int:
-        max_ = 0
+        n = len(s)
         seen = set()
 
-        def dfs(s, seen):
-            ans = 0
+        def dfs(start):
+            if start == n:
+                return 0
 
-            for i in range(1, len(s) + 1):
-                candidates = s[:i]
+            count = 0
+            for i in range(start + 1, n + 1):
+                substr = s[start:i]
+                if substr not in seen:
+                    seen.add(substr)
+                    count = max(count, 1 + dfs(i))
+                    seen.remove(substr)
 
-                if candidates not in seen:
-                    seen.add(candidates)
-                    ans = max(ans, 1 + dfs(s[i:], seen))
-                    seen.remove(candidates)
-            return ans
+            return count
 
-        max_ = dfs(s, seen)
+        return dfs(0)
 
-        return max_
+
+sol = Solution()
+res = sol.maxUniqueSplit("ababccc")
+print(res)
+
+
+
 
 
 
