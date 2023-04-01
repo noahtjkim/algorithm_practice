@@ -1,6 +1,6 @@
 
 class Solution:
-    def isRectangleOverlap(self, rec1: List[int], rec2: List[int]) -> bool:
+    def isRectangleOverlap(self, rec1: list, rec2: list) -> bool:
         x_flag = False
         y_flag = False
 
