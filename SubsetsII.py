@@ -19,6 +19,7 @@ class Solution:
                 backtracking(n[i + 1:], subs, depth + 1)
                 del subs[-1]
 
+
         res.append([])
         backtracking(nums, [], 0)
 
