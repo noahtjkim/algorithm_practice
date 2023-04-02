@@ -1,5 +1,6 @@
+
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums: list) -> list:
         res = []
 
         def backtracking(n, subset, level):
